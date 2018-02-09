@@ -10,4 +10,6 @@ for line in f:
 f.close()
 
 #g.printGraph()
-g.DFScall(2)
+#g.DFScall(2)
+g.BFScall(1)
+print(g.path)

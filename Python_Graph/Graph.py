@@ -6,6 +6,7 @@ class Graph:
 
 	def addEdge(self, u, v):
 		self.graph[u].append(v)
+		self.graph[v].append(u)
 
 	def printGraph(self):
 		for u in self.graph:
@@ -21,6 +22,22 @@ class Graph:
 		visited = [False]*(len(self.graph)+1)
 		self.DFSrecur(v, visited)
 		print()
+
+	def BFScall(self, v):
+		visited = [False]*(len(self.graph)+1)
+		self.path = []
+		q = []; q.append(v); visited[v] = True
+
+		while q:
+			v = q.pop(0)
+			self.path.append(v)
+			for adj in self.graph[v]:
+				if visited[adj] == False:
+					visited[adj] = True
+					q.append(adj)
+					
+
+
 
 '''
 	def DFSutil(self, v, visited):
